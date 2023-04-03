@@ -1,5 +1,6 @@
 .header {
-  max-width: calc(100% - 400px);
-  margin: 45px auto 36px;
-  box-shadow: 0 1px 0 0 #545454;
+  max-width: 880px;
+  margin: 0 auto ;
+  padding: 45px 0 40px;
+  border-bottom: 1px solid #545454;
 }
