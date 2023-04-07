@@ -12,66 +12,58 @@
   </header>
   <main class="content">
     <section class="profile">
-      <div class="profile__avatar">
-        <img src="./images/Avatar.png" class="profile__avatar-pic" alt="Изображение профиля">
-      </div>
+      <img src="./images/Avatar.png" class="profile__avatar" alt="Изображение профиля">
       <div class="profile__info">
         <div class="profile__container">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
           <button class="profile__edit-btn" type="button"></button>
         </div>
-        <h2 class="profile__description">Исследователь океана</h2>
+        <p class="profile__description">Исследователь океана</p>
       </div>
       <button class="profile__add-btn" type="button"></button>
     </section>
     <section class="elements-container">
       <ul class="elements">
         <li class="elements__card">
-          <img src="./images/Karachaevsk.png" class="elements__card-image" alt="изображение">
+          <img src="./images/Karachaevsk.png" class="elements__card-image" alt="Карачаево-Черкессия">
           <div class="elements__title-container">
             <h2 class="elements__title">Карачаевск</h2>
-            <img src="./images/Like-icon.svg" class="elements__like-btn" alt="Лайк">
-            <img src="./images/Like-btn-active.svg" class="elements__like-btn elements__like-btn_active" alt="Лайк" style="display: none;">
+            <button class="elements__like-btn elements__like-btn_active" type="button"></button>
           </div>
         </li>
         <li class="elements__card">
-          <img src="./images/Elbrus.png" class="elements__card-image" alt="изображение">
+          <img src="./images/Elbrus.png" class="elements__card-image" alt="Гора Эльбрус">
           <div class="elements__title-container">
             <h2 class="elements__title">Гора Эльбрус</h2>
-            <img src="./images/Like-icon.svg" class="elements__like-btn" alt="Лайк">
-            <img src="./images/Like-btn-active.svg" class="elements__like-btn elements__like-btn_active" alt="Лайк" style="display: none;">
+            <button class="elements__like-btn elements__like-btn_active" type="button"></button>
           </div>
         </li>
         <li class="elements__card">
-          <img src="./images/Dombay.png" class="elements__card-image" alt="изображение">
+          <img src="./images/Dombay.png" class="elements__card-image" alt="Домбай">
           <div class="elements__title-container">
             <h2 class="elements__title">Домбай</h2>
-            <img src="./images/Like-icon.svg" class="elements__like-btn" alt="Лайк">
-            <img src="./images/Like-btn-active.svg" class="elements__like-btn elements__like-btn_active" alt="Лайк" style="display: none;">
+            <button class="elements__like-btn elements__like-btn_active" type="button"></button>
           </div>
         </li>
         <li class="elements__card">
-          <img src="./images/Elbrus.png" class="elements__card-image" alt="изображение">
+          <img src="./images/Elbrus.png" class="elements__card-image" alt="Гора Эльбрус">
           <div class="elements__title-container">
             <h2 class="elements__title">Гора Эльбрус</h2>
-            <img src="./images/Like-icon.svg" class="elements__like-btn" alt="Лайк">
-            <img src="./images/Like-btn-active.svg" class="elements__like-btn elements__like-btn_active" alt="Лайк" style="display: none;">
+            <button class="elements__like-btn elements__like-btn_active" type="button"></button>
           </div>
         </li>
         <li class="elements__card">
-          <img src="./images/Dombay.png" class="elements__card-image" alt="изображение">
+          <img src="./images/Dombay.png" class="elements__card-image" alt="Домбай">
           <div class="elements__title-container">
             <h2 class="elements__title">Домбай</h2>
-            <img src="./images/Like-icon.svg" class="elements__like-btn" alt="Лайк">
-            <img src="./images/Like-btn-active.svg" class="elements__like-btn elements__like-btn_active" alt="Лайк" style="display: none;">
+            <button class="elements__like-btn elements__like-btn_active" type="button"></button>
           </div>
         </li>
         <li class="elements__card">
-          <img src="./images/Karachaevsk.png" class="elements__card-image" alt="изображение">
+          <img src="./images/Karachaevsk.png" class="elements__card-image" alt="Карачаево-Черкессия">
           <div class="elements__title-container">
             <h2 class="elements__title">Карачаево-Черкессия</h2>
-            <img src="./images/Like-icon.svg" class="elements__like-btn" alt="Лайк">
-            <img src="./images/Like-btn-active.svg" class="elements__like-btn elements__like-btn_active" alt="Лайк" style="display: none;">
+            <button class="elements__like-btn elements__like-btn_active" type="button"></button>
           </div>
         </li>
       </ul>
@@ -83,14 +75,14 @@
   <div class="popup">
     <div class="popup__container">
       <h2 class="popup__title"> Редактировать профиль</h2>
-      <form class="popup__form">
-        <input class="popup__input popup__input_data_name" placeholder="Имя">
-        <input class="popup__input popup__input_data_description" placeholder="О себе">
-        <button class="popup__submit-btn" type="button">Сохранить</button>
+      <form class="popup__form" name="profileEdit">
+        <input class="popup__input popup__input_data_name" name="userName" placeholder="Имя">
+        <input class="popup__input popup__input_data_description" name="userDescription" placeholder="О себе">
+        <button class="popup__submit-btn" type="submit">Сохранить</button>
       </form>
       <button class="popup__close-btn" type="button"></button>
     </div>
   </div>
-<script src="./pages/index.js"></script>
+<script src="./scripts/index.js"></script>
 </body>
 </html>
