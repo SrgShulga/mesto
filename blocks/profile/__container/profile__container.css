@@ -1,6 +1,6 @@
 .profile__container {
   display: flex;
-  align-items: baseline;
+  align-items: center;
 }
 
 @media screen and (max-width: 620px) {
