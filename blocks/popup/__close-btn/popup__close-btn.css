@@ -3,6 +3,7 @@
   height: 32px;
   background-image: url(../../../images/Close-icon.svg);
   background-color: transparent;
+  background-repeat: no-repeat;
   border: none;
   position: absolute;
   top: -40px;
