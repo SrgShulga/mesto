@@ -30,7 +30,7 @@
   <footer class="footer">
     <p class="footer__copyright">© 2020 Mesto Russia</p>
   </footer>
-  <div class="popup">
+  <div class="popup" id="edit__popup">
     <div class="popup__container">
       <h2 class="popup__title"> Редактировать профиль</h2>
       <form class="popup__form" name="profileEdit">
@@ -41,13 +41,23 @@
       <button class="popup__close-btn" type="button"></button>
     </div>
   </div>
-  <template id="elements-template">
-    <li class="elements__card">
-      <img src="" class="elements__card-image" alt="">
-      <button class="elements__delete-btn" type="button"></button>
-      <div class="elements__title-container">
-        <h2 class="elements__title"></h2>
-        <button class="elements__like-btn" type="button"></button>
+  <div class="popup" id="add__popup">
+    <div class="popup__container">
+      <h2 class="popup__title">Новое место</h2>
+      <form class="popup__form" name="addCard">
+        <input class="popup__input popup__input_data_title" name="placeTitle" placeholder="Название">
+        <input class="popup__input popup__input_data_url" name="placeUrl" placeholder="Ссылка на картинку">
+        <button class="popup__submit-btn" type="submit">Сохранить</button>
+      </form>
+      <button class="popup__close-btn" type="button"></button>
+    </div>
+  <template id="element-template">
+    <li class="element__card">
+      <img src="" class="element__card-image" alt="">
+      <button class="element__delete-btn" type="button"></button>
+      <div class="element__title-container">
+        <h2 class="element__title"></h2>
+        <button class="element__like-btn" type="button"></button>
       </div>
     </li>
   </template>

@@ -1,4 +1,4 @@
-.elements__delete-btn {
+.element__delete-btn {
   width: 18px;
   height: 19px;
   position: absolute;
@@ -12,6 +12,6 @@
   cursor: pointer;
 }
 
-.elements__delete-btn:hover {
+.element__delete-btn:hover {
   opacity: 0.5;
 }
