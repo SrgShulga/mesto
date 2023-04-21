@@ -29,13 +29,17 @@ const editProfileBtn = document.querySelector('.profile__edit-btn');
 
 const addCardBtn = document.querySelector('.profile__add-btn');
 
-const editPopup = document.querySelector('#edit__popup');
+const editPopup = document.querySelector('#edit-popup');
 
-const addPopup = document.querySelector('#add__popup');
+const addPopup = document.querySelector('#add-popup');
+
+const imagePopup = document.querySelector('#image-popup')
 
 const closeProfileEditBtn = editPopup.querySelector('.popup__close-btn');
 
 const closeCardAddBtn = addPopup.querySelector('.popup__close-btn');
+
+const closeImagePopupBtn = imagePopup.querySelector('.popup__close-btn');
 
 const profileName = document.querySelector('.profile__name');
 
@@ -81,6 +85,8 @@ const createCardElement = (cardData) => {
   const cardTitle = cardElement.querySelector('.element__title');
   const cardDeleteButton = cardElement.querySelector('.element__delete-btn');
   const cardLikeButton = cardElement.querySelector('.element__like-btn');
+  const imagePopupPic = imagePopup.querySelector('.popup__figure-pic');
+  const iamgePopupCaption = imagePopup.querySelector('.popup__figure-caption');
 
   cardTitle.textContent = cardData.name;
   cardImage.src = cardData.link;
@@ -90,12 +96,24 @@ const createCardElement = (cardData) => {
     cardElement.remove();
   };
 
-  const handleLike  = (evt) => {
+  const handleLike  = () => {
     cardLikeButton.classList.toggle('element__like-btn_active');
+  };
+
+  const openImagePopup = () => {
+    imagePopupPic.src = cardData.link;
+    iamgePopupCaption.textContent = cardData.name;
+    openPopup(imagePopup);
+  };
+
+  const closeImagePopup = () => {
+    closePopup(imagePopup);
   };
 
   cardDeleteButton.addEventListener('click', handleDelete);
   cardLikeButton.addEventListener('click', handleLike);
+  cardImage.addEventListener('click', openImagePopup);
+  closeImagePopupBtn.addEventListener('click', closeImagePopup);
 
   return cardElement;
 };
@@ -103,7 +121,7 @@ const createCardElement = (cardData) => {
 initialCards.forEach((card) => {
   const element = createCardElement(card);
 
-  cardContainer.prepend(element);
+  cardContainer.append(element);
 });
 
 const addNewCard = (evt) => {
@@ -119,4 +137,3 @@ addCardBtn.addEventListener('click', () => openPopup(addPopup));
 closeCardAddBtn.addEventListener('click', () => closePopup(addPopup));
 editProfileForm.addEventListener('submit', handleFormSubmit);
 addCardForm.addEventListener('submit', addNewCard);
-
