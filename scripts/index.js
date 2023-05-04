@@ -8,6 +8,8 @@ const addCardBtn = document.querySelector('.profile__add-btn');
 
 const popupElements = document.querySelectorAll('.popup');
 
+const formInputList = Array.from(document.querySelectorAll('.popup__input'));
+
 const editProfilePopup = document.querySelector('#edit-popup');
 
 const closeProfileEditBtn = editProfilePopup.querySelector('.popup__close-btn');
@@ -18,6 +20,8 @@ const inputDescription = editProfilePopup.querySelector('.popup__input_data_desc
 
 const editProfileForm = editProfilePopup.querySelector('.popup__form');
 
+const editProfileSubmitBtn = editProfileForm.querySelector('.popup__submit-btn');
+
 const addCardPopup = document.querySelector('#add-popup');
 
 const closeCardAddBtn = addCardPopup.querySelector('.popup__close-btn');
@@ -27,6 +31,8 @@ const inputTitle = addCardPopup.querySelector('.popup__input_data_title');
 const inputUrl = addCardPopup.querySelector('.popup__input_data_url');
 
 const addCardForm = addCardPopup.querySelector('.popup__form');
+
+const addCardSubmitBtn = addCardForm.querySelector('.popup__submit-btn');
 
 const zoomImagePopup = document.querySelector('#image-popup')
 
@@ -39,6 +45,7 @@ const zoomImagePopupCaption = document.querySelector('.popup__figure-caption');
 const cardTemplate = document.querySelector('#element-template');
 
 const cardContainer = document.querySelector('.element');
+
 
 const openPopup = (popupName) => {
   popupName.classList.add('popup_opened');
@@ -81,6 +88,7 @@ const handleProfileFormSubmit = (evt) => {
   evt.preventDefault();
   profileName.textContent = inputName.value;
   profileDescription.textContent = inputDescription.value;
+  toggleButtonState(formInputList, editProfileSubmitBtn);
   closePopup(editProfilePopup);
 };
 
@@ -128,6 +136,7 @@ const handleAddNewCard = (evt) => {
   evt.preventDefault();
   cardContainer.prepend(createCardElement({name:inputTitle.value, link:inputUrl.value}));
   evt.target.reset();
+  toggleButtonState(formInputList, addCardSubmitBtn);
   closePopup(addCardPopup);
 };
 
