@@ -6,6 +6,8 @@ const profileDescription = document.querySelector('.profile__description');
 
 const addCardBtn = document.querySelector('.profile__add-btn');
 
+const popupElements = document.querySelectorAll('.popup');
+
 const editProfilePopup = document.querySelector('#edit-popup');
 
 const closeProfileEditBtn = editProfilePopup.querySelector('.popup__close-btn');
@@ -40,17 +42,36 @@ const cardContainer = document.querySelector('.element');
 
 const openPopup = (popupName) => {
   popupName.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupByEsc);
 };
 
 const openEditProfilePopup = () => {
   inputName.value = profileName.textContent;
   inputDescription.value = profileDescription.textContent;
   openPopup(editProfilePopup);
+  hideActiveInputError(editProfileForm, inputName, inputDescription);
 };
 
 const closePopup = (popupName) => {
   popupName.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupByEsc);
 };
+
+
+const closePopupByEsc = (evt) => {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened')
+    closePopup(openedPopup);
+  }
+};
+
+popupElements.forEach((popupElement) => {
+  popupElement.addEventListener('mousedown', (evt) => {
+    if (evt.target.classList.contains('popup_opened')) {
+      closePopup(popupElement);
+    }
+  });
+});
 
 const closeZoomImagePopup = () => {
   closePopup(zoomImagePopup);
@@ -113,7 +134,7 @@ const handleAddNewCard = (evt) => {
 editProfileBtn.addEventListener('click', openEditProfilePopup);
 closeProfileEditBtn.addEventListener('click', () => closePopup(editProfilePopup));
 editProfileForm.addEventListener('submit', handleProfileFormSubmit);
-addCardBtn.addEventListener('click', () => openPopup(addCardPopup));
+addCardBtn.addEventListener('click', () => {openPopup(addCardPopup); hideActiveInputError(addCardForm, inputTitle, inputUrl);});
 closeCardAddBtn.addEventListener('click', () => closePopup(addCardPopup));
 addCardForm.addEventListener('submit', handleAddNewCard);
 closeZoomImagePopupBtn.addEventListener('click', closeZoomImagePopup);
