@@ -3,6 +3,7 @@ class FormValidator {
     this._config = classConfig;
     this._element = formElement
     this._submitElement = this._element.querySelector(this._config.submitButtonSelector);
+    this._inputList = Array.from(this._element.querySelectorAll(this._config.inputSelector));
   }
 
   _showInputError = (inputElement, errorMessage) => {
@@ -28,9 +29,8 @@ class FormValidator {
   }
 
   _setEventListeners = () => {
-    const inputList = Array.from(this._element.querySelectorAll(this._config.inputSelector));
     this._toggleButtonState();
-    inputList.forEach((inputElement) => {
+    this._inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', () => {
         this._checkInputValidity(inputElement);
         this._toggleButtonState();
@@ -44,7 +44,6 @@ class FormValidator {
     });
   }
 
-
   _toggleButtonState = () => {
     if (this._hasValidInput()) {
       this._submitElement.classList.add(this._config.disabledButtonClass);
@@ -55,23 +54,16 @@ class FormValidator {
     };
   }
 
-  hideActiveInputError = (input, secondInput) => {
-  const error = Array.from(this._element.querySelectorAll('.popup__input-error'));
-  if (input.classList.contains(this._config.inputErrorClass) || secondInput.classList.contains(this._config.inputErrorClass)) {
-    input.classList.remove(this._config.inputErrorClass);
-    secondInput.classList.remove(this._config.inputErrorClass);
-    error.forEach((errorMessage) => {
-      errorMessage.classList.remove(this._config.errorClass);
-      errorMessage.textContent = '';
-    })};
+  resetValidation() {
+    this._toggleButtonState();
+    this._inputList.forEach((inputElement) => {
+      this._hideInputError(inputElement);
+    });
   }
 
-  enableValidation = ()=> {
-    const formList = Array.from(document.querySelectorAll(this._config.formSelector));
-    formList.forEach((inputElement) => {
-      this._setEventListeners(inputElement);
-    });
-  };
+  enableValidation = () => {
+      this._setEventListeners();
+  }
 };
 
 export {FormValidator};
