@@ -11,7 +11,7 @@ class Card {
     this._handleCardClick = handleCardClick;
   }
 
-  _handleCardDelete = (evt) => {
+  _handleCardDelete = () => {
     this._cardElement.remove();
   }
 
@@ -27,7 +27,7 @@ class Card {
     });
 }
 
-  generateCard() {
+  generateCard = () => {
     this._cardTitle.textContent = this._title;
     this._cardImage.src = this._image;
     this._cardImage.alt = this._title;
