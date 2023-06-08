@@ -1,4 +1,4 @@
-const initialCards = [
+export const initialCards = [
   {
     name: 'Архыз',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -25,7 +25,7 @@ const initialCards = [
   }
 ];
 
-const config = {
+export const config = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__submit-btn',
@@ -34,4 +34,18 @@ const config = {
   errorClass: 'popup__input-error_visible',
 };
 
-export {initialCards, config};
+export const editProfileBtn = document.querySelector('.profile__edit-btn');
+
+export const addCardBtn = document.querySelector('.profile__add-btn');
+
+export const editProfilePopup = document.querySelector('#edit-popup');
+
+export const inputName = editProfilePopup.querySelector('.popup__input_data_name');
+
+export const inputDescription = editProfilePopup.querySelector('.popup__input_data_description');
+
+export const editProfileForm = editProfilePopup.querySelector('.popup__form');
+
+export const addCardPopup = document.querySelector('#add-popup');
+
+export const addCardForm = addCardPopup.querySelector('.popup__form');
