@@ -1,4 +1,4 @@
-import {config, initialCards} from '../components/utils/constants.js';
+import {config, initialCards} from '../utils/constants.js';
 
 import { Card } from '../components/Card.js';
 
@@ -16,7 +16,7 @@ import {
   editProfileForm, addCardForm,
   addCardBtn, editProfileBtn,
   inputName, inputDescription
-} from '../components/utils/constants.js'
+} from '../utils/constants.js'
 
 import './index.css';
 
@@ -41,11 +41,11 @@ const popupEditProfile = new PopupWithForm('#edit-popup', {
 
 const popupAddCard = new PopupWithForm('#add-popup', {
   formSubmitCallback: (formValues) => {
-    renderInitialCards.addItem(createCard({
+    cardsSection.addItem(createCard({
       name: formValues.placeTitle,
       link: formValues.placeUrl
     }));
-    popupAddCard.close()
+    popupAddCard.close();
   }
 });
 
@@ -60,22 +60,21 @@ popupZoomImage.setEventListeners();
 
 const createCard = (item) => {
   const card = new Card(item, '#element-template', handleCardClick);
-  const cardElement = card.generateCard();
-  return cardElement;
+  return card.generateCard();
 };
 
-const renderInitialCards = new Section({
+const cardsSection = new Section({
   items: initialCards,
   renderer: (cardData) => {
-    renderInitialCards.addItem(createCard(cardData));
+    cardsSection.addItem(createCard(cardData));
   }
 }, '.element');
 
-export const handleCardClick = (title, image) => {
+const handleCardClick = (title, image) => {
   popupZoomImage.open(title, image)
 };
 
-renderInitialCards.renderItems();
+cardsSection.renderItems();
 
 editProfileValidator.enableValidation();
 

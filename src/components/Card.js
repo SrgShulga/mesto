@@ -15,8 +15,8 @@ export class Card {
     this._cardElement.remove();
   }
 
-  _handleLike = (evt) => {
-    evt.target.classList.toggle('element__like-btn_active');
+  _handleLike = () => {
+    this._cardLikeBtn.classList.toggle('element__like-btn_active');
   }
 
   _setEventListeners = () => {

@@ -15,11 +15,11 @@
       <div class="profile__info">
         <div class="profile__container">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <button class="profile__edit-btn" type="button"></button>
+          <button class="profile__edit-btn" aria-label="Редактировать профиль" type="button"></button>
         </div>
         <p class="profile__description">Исследователь океана</p>
       </div>
-      <button class="profile__add-btn" type="button"></button>
+      <button class="profile__add-btn" aria-label="Добавить фото" type="button"></button>
     </section>
     <section class="elements-container">
       <ul class="element">
@@ -27,7 +27,7 @@
     </section>
   </main>
   <footer class="footer">
-    <p class="footer__copyright">© 2020 Mesto Russia</p>
+    <p class="footer__copyright">© 2023 Mesto Russia</p>
   </footer>
   <div class="popup" id="edit-popup">
     <div class="popup__container">
@@ -43,7 +43,7 @@
         </label>
         <button class="popup__submit-btn" type="submit">Сохранить</button>
       </form>
-      <button class="popup__close-btn" type="button"></button>
+      <button class="popup__close-btn" aria-label="Закрыть" type="button"></button>
     </div>
   </div>
   <div class="popup" id="add-popup">
@@ -60,26 +60,25 @@
         </label>
         <button class="popup__submit-btn" type="submit">Создать</button>
       </form>
-      <button class="popup__close-btn" type="button"></button>
+      <button class="popup__close-btn" aria-label="Закрыть" type="button"></button>
     </div>
   </div>
   <div class="popup popup_image" id="image-popup">
     <figure class="popup__container popup__container_type_image-figure">
       <img src="#" class="popup__figure-pic" alt="">
       <figcaption class="popup__figure-caption"></figcaption>
-      <button class="popup__close-btn" type="button"></button>
+      <button class="popup__close-btn" aria-label="Закрыть" type="button"></button>
     </figure>
   </div>
   <template id="element-template">
     <li class="element__card">
       <img src="#" class="element__card-image" alt="">
-      <button class="element__delete-btn" type="button"></button>
+      <button class="element__delete-btn" aria-label="Удалить" type="button"></button>
       <div class="element__title-container">
         <h2 class="element__title"></h2>
-        <button class="element__like-btn" type="button"></button>
+        <button class="element__like-btn" aria-label="Нравится" type="button"></button>
       </div>
     </li>
   </template>
-  <script type="module" src="./scripts/index.js"></script>
 </body>
 </html>
