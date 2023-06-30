@@ -64,10 +64,10 @@ const popupAddCard = new PopupWithForm('#add-popup', {
       .then((card) => {
     cardsSection.addItem(createCard(card));
     popupAddCard.close();
-      })
-      .catch((err) => {console.log(`При добавлении карточки произошла ошибка, ${err}`)})
-      .finally(() => {
-        popupAddCard.removeSavingProcessNotice();
+  })
+  .catch((err) => {console.log(`При добавлении карточки произошла ошибка, ${err}`)})
+  .finally(() => {
+    popupAddCard.removeSavingProcessNotice();
       })
   }
 });
