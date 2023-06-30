@@ -1,6 +1,6 @@
 .element__title-container {
   max-width: 100%;
-  margin: 25px 15px 25px 21px;
+  padding: 25px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
