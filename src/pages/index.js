@@ -46,12 +46,12 @@ const popupEditProfile = new PopupWithForm('#edit-popup', {
           name: res.name,
           description: res.about
         });
-        popupEditProfile.close();
       })
       .catch((err) => {
         console.log(`При редактировании профиля возникла ошибка, ${err}`)
       })
       .finally(() => {
+        popupEditProfile.close();
         popupEditProfile.removeSavingProcessNotice();
       })
   }
@@ -63,11 +63,11 @@ const popupAddCard = new PopupWithForm('#add-popup', {
     apiRequest.createNewCard({name: formValues.placeTitle, link: formValues.placeUrl})
       .then((card) => {
     cardsSection.addItem(createCard(card));
+  })
+  .catch((err) => {console.log(`При добавлении карточки произошла ошибка, ${err}`)})
+  .finally(() => {
     popupAddCard.close();
-      })
-      .catch((err) => {console.log(`При добавлении карточки произошла ошибка, ${err}`)})
-      .finally(() => {
-        popupAddCard.removeSavingProcessNotice();
+    popupAddCard.removeSavingProcessNotice();
       })
   }
 });
@@ -78,10 +78,10 @@ const popupEditAvatar = new PopupWithForm('#avatar-popup', {
     apiRequest.sendAvatarData(profileInfo)
       .then((res) => {
         userInfo.setUserAvatar(res.avatar);
-        popupEditAvatar.close();
       })
       .catch((err) => {`При обновлении аватара профиля произошла ошибка, ${err}`})
       .finally(() => {
+        popupEditAvatar.close();
         popupEditAvatar.removeSavingProcessNotice();
       })
   }
@@ -92,9 +92,11 @@ const popupConfirmDelete = new PopupConfirm('#delete-popup', {
     apiRequest.deleteCard(cardId)
       .then(() => {
         cardElement.deleteCard();
-        popupConfirmDelete.close();
       })
       .catch((err) => {console.log(`При удалении карточки возникла ошибка, ${err}`)})
+      .finally(() => {
+        popupConfirmDelete.close();
+      })
   }
 });
 
